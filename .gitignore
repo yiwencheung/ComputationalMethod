@@ -37,4 +37,8 @@
 /.idea
 /README.md
 
+# latex files
+*.aux
+*.log
+*.synctex.gz
 
