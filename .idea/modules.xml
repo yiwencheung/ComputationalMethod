@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/ComputationalMethod.iml" filepath="$PROJECT_DIR$/.idea/ComputationalMethod.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/ComputingMethod.iml" filepath="$PROJECT_DIR$/.idea/ComputingMethod.iml" />
     </modules>
   </component>
