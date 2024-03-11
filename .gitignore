@@ -32,6 +32,9 @@
 *.app
 
 # local
-CMakeLists.txt
 /cmake-build-debug
+/CMakeLists.txt
+/.idea
+/README.md
+
 
