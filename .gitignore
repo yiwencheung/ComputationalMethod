@@ -33,6 +33,7 @@
 
 # local
 /cmake-build-debug
+/build
 /CMakeLists.txt
 /.idea
 /README.md
