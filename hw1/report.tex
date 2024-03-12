@@ -2,6 +2,9 @@
 \usepackage{amsmath,amsthm}
 \usepackage{graphicx}
 \usepackage{ctex}
+\usepackage{float}
+\usepackage{subfigure}
+\usepackage{caption}
 
 \title{计算方法编程作业一实验报告}
 \author{张博厚 PB22071354}
@@ -9,6 +12,7 @@
 
 \begin{document}
 \maketitle
+\tableofcontents
 
 \section{实验内容}
 本实验要求编程求解一反射问题的二维简化模型: 将镜面假定为圆形, 给定观察点P与物点Q, 
@@ -49,5 +53,87 @@ $$\angle QTV = \arcsin{\dfrac{l_2}{\lvert QT \rvert}}$$
 (实验中设置为double类型的精度15位), 此时的T即为所求反射点.
 
 \subsection{计算像点R}
-对于像点R, 在已知Q与T的前提下用解析法求解.
+对于像点R, 在已知Q与T的前提下用解析法求解,实质上即为求解Q关于圆上过T切线的对称点.
+(1)式写出直线OT方程, 由切线过T且与OT垂直, 可知切线方程为:
+\begin{equation}
+    l:\ y-y_T = -\dfrac{x_T}{y_T}(x-x_T)
+\end{equation}
+直线QR与直线l垂直, 因此QR的方程为:
+\begin{equation}
+    y-y_Q = \dfrac{y_T}{x_T}(x-x_Q)
+\end{equation}
+设直线QR与直线l的交点为M,联立(2)(3)式可得M坐标为:
+\begin{equation}
+    \begin{cases}
+        x_M = x_Ty_T(y_T-y_Q)+x_T^3+y_T^2x_Q\\
+        y_M = y_T-\dfrac{x_T}{y_T}(x_M-x_T)
+    \end{cases}
+\end{equation}
+点Q与R关于切线l对称, 因而关于交点M中心对称, 由关系
+\begin{equation}
+    \begin{cases}
+        x_R = 2x_M-x_Q\\
+        y_R = 2y_M-y_Q
+    \end{cases}
+\end{equation}
+即可求得像点R的坐标.
+
+\section{实验结果}
+对所给样例,计算结果如下:
+\begin{figure}[H]
+    \centering
+    \subfigure{
+        \includegraphics[scale = 0.75]{figs/r00.png}
+    }
+    \hspace{0.5in}
+    \subfigure{
+        \includegraphics[scale = 0.75]{figs/r01.png}
+    }
+    \caption{所给样例}
+\end{figure}\noindent
+与参考数据相比,误差在允许范围内($10^{-6}$).\par
+对自测数据,计算结果如下:
+\begin{figure}[H]
+    \centering
+    \subfigure{
+        \includegraphics[scale = 0.75]{figs/r0.png}
+    }
+    \hspace{0.5in}
+    \subfigure{
+        \includegraphics[scale = 0.75]{figs/r1.png}
+    }
+    \hspace{0.5in}
+    \subfigure{
+        \includegraphics[scale = 0.7]{figs/r2.png}
+    }
+    \hspace{0.5in}
+    \subfigure{
+        \includegraphics[scale = 0.7]{figs/r3.png}
+    }
+    \hspace{0.5in}
+    \subfigure{
+        \includegraphics[scale = 0.7]{figs/r4.png}
+    }
+    \hspace{0.5in}
+    \subfigure{
+        \includegraphics[scale = 0.7]{figs/r5.png}
+    }
+    \hspace{0.5in}
+    \subfigure{
+        \includegraphics[scale = 0.75]{figs/r6.png}
+    }
+    \hspace{0.5in}
+    \subfigure{
+        \includegraphics[scale = 0.75]{figs/r7.png}
+    }
+    \caption{自测数据}
+\end{figure}
+
+\section{分析与思考}\noindent
+对比参考数据而言, 计算结果符合4位有效数字精度要求,但仍有一定误差存在, 主要原因如下:\\
+
+\noindent1.double类型精度仅为15位, 进行多次计算后误差会逐次放大.\\
+2.函数中调用了c++的cmath库, 进行了三角函数,反三角函数等计算,也会造成一定误差.\\
+3.特别地, 在计算$\angle PTV, \angle QTV$时, 需要将$\lvert PT\rvert, \lvert QT \rvert$
+作为分母, 因此当P与T,Q与T接近时(如自测数据1,2), 误差会比较大.
 \end{document}

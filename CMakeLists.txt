@@ -4,6 +4,6 @@ project(ComputationalMethod)
 set(CMAKE_CXX_STANDARD 14)
 
 add_executable(ComputationalMethod
-        hw1/main.cpp
-        hw1/mirrorCup.hpp
-        hw1/mirrorCup.cpp)
+        hw1/src/main.cpp
+        hw1/src/mirrorCup.hpp
+        hw1/src/mirrorCup.cpp)
