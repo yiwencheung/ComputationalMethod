@@ -4,6 +4,6 @@ project(ComputationalMethod)
 set(CMAKE_CXX_STANDARD 14)
 
 add_executable(ComputationalMethod
-        hw1/src/main.cpp
-        hw1/src/mirrorCup.hpp
-        hw1/src/mirrorCup.cpp)
+        hw2/src/LinearEquations.cpp
+        hw2/src/LinearEquations.h
+        hw2/src/main.cpp)
