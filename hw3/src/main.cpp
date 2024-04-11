@@ -1,14 +1,14 @@
 #include "InversePowerMethod.h"
 
 int main(){
-    //åˆå§‹åŒ–ç³»æ•°çŸ©é˜µ
-    std::vector<std::vector<int>>    A2  = {{4, -1 , -1, 3}, {16, -2, -2, 5}, {16, -3, -1, 7}, {6, -4, 2, 9}};
+    //³õÊ¼»¯ÏµÊı¾ØÕó
+    std::vector<std::vector<double>>    A2  = {{4, -1 , 1, 3}, {16, -2, -2, 5}, {16, -3, -1, 7}, {6, -4, 2, 9}};
     std::vector<std::vector<double>> A1 (5, std::vector<double>(5,0));
     for(int i = 9, k = 0; i > 4; --i, ++k)
         for (int j = 0; j < 5; ++j)
             A1[k][j] = 1.0 / (i-j);
-    //åˆ†åˆ«æ±‚è§£
-    InversePowerMethod<std::vector<std::vector<double>>, std::vector<double>, double>(A1);
-    //InversePowerMethod<std::vector<std::vector<int>>, std::vector<int>, int>(A2);
+    //·Ö±ğÇó½â
+    InversePowerMethod(A1);
+    InversePowerMethod(A2);
     return 0;
 }
