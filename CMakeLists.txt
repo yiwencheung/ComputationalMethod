@@ -4,6 +4,6 @@ project(ComputationalMethod)
 set(CMAKE_CXX_STANDARD 14)
 
 add_executable(ComputationalMethod
-        hw3/src/main.cpp
-        hw3/src/InversePowerMethod.cpp
-        hw3/src/InversePowerMethod.h)
+        hw4/main.cpp
+        hw4/PCA.cpp
+        hw4/PCA.h)
