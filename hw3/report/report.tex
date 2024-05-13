@@ -18,12 +18,21 @@
 \tableofcontents
 \newpage
 
-\section{实验目的}
+\section{问题描述}
 使用C++实现带规范方法的反幂法， 求解给定矩阵的按模最小特征值及相应的特征向量， 其中
 迭代方程$X^{k+1} = A^{-1}Y^k$使用LU分解（Doolittle分解）来求解。
 
-\section{算法}
-按教材所述反幂法与Doolittle分解算法来执行。
+\section{问题分析与算法}
+\subsection{反幂法}
+\noindent
+算法执行过程如下：\\
+1. 初始化$X^0, Y^0$, 对矩阵A做LU(Doolittle)分解，转2.\\
+2. 解方程$AX^{k+1} = Y^k$，转3.\\
+3. 计算$\lambda$ 与 $Y_{k+1}$， 转4.\\
+4. 若两次$\lambda$之差小于给定精度，则退出，否则转2.
+\subsection{LU分解}
+矩阵L，U分别为下/上三角矩阵，L的对角元已知，均为1,按照分别计算U的第k行，L的第k列的顺序(k=1,2...n-1),
+最后计算U的第n行。按此方法，L与U均只需计算一次，可以减少在迭代中解方程的开支。
 \section{实验结果}\noindent
 实验结果如下：\\
 A1:

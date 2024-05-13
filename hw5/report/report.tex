@@ -62,6 +62,17 @@ d_i = \dfrac{6}{h_i+h_{i-1}}(\dfrac{y_{i+1}-y_i}{h_i}-\dfrac{y_i-y_{i-1}}{h_{i-1
     \includegraphics[scale = 0.8]{figs/comp.png}
     \caption{前后结果比较}
 \end{figure}
+使用Python+matplotlib进行数据可视化，结果如下：
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale = 0.7]{figs/myplot.png}
+    \caption{可视化结果}
+\end{figure}
+可见，函数仅在更改坐标的点附近变化较大，在其他区间变动几乎可以忽略不计。
+
+\section{实验总结}
+综合以上实验结果可以看出，三次样条插值具有良好的连续性和数值稳定性，可以有效
+缓解Runge现象，局部数据点的变化不会对较远处的插值函数产生显著影响，是一种强大而灵活的插值方法。
 
 
 \end{document}
