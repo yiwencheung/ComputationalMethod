@@ -4,9 +4,6 @@ project(ComputationalMethod)
 set(CMAKE_CXX_STANDARD 14)
 
 add_executable(ComputationalMethod
-        hw5/src/main.cpp
-        hw5/src/Spline.cpp
-        hw5/src/Spline.h
         hw6/src/main.cpp
         hw6/src/FastFourier.cpp
         hw6/src/FastFourier.h)

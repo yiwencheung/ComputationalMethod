@@ -16,10 +16,10 @@ double func2(double t){
     return res;
 }
 
-std::vector<double> GenerateVec(FunctionPtr func, int n){
-    std::vector<double> res(n, 0);
+std::vector<std::complex<double>> GenerateVec(FunctionPtr func, int n){
+    std::vector<std::complex<double>> res;
     for(int i = 0; i < n; i++)
-        res[i] = func(static_cast<double> (i) / n);
+        res.emplace_back(func(static_cast<double> (i) / n));
     return res;
 }
 
@@ -54,4 +54,23 @@ std::vector<std::complex<double>> FFT(const std::vector<std::complex<double>>& f
         w *= wn;
     }
     return g;
+}
+
+void outputVec(const std::vector<std::complex<double>> vec){
+    for(auto item: vec)
+        std::cout << "实部：" << std::real(item) << " 虚部：" << std::imag(item) << std::endl;
+}
+
+void saveRes(std::string path, std::vector<std::complex<double>> vec, bool saveReal){
+    std::ofstream fout(path, std::ios::out);
+    if(!fout.is_open()){
+        std::cout << "open file failed!";
+        exit(255);
+    }
+    for(auto item: vec){
+        if(saveReal)
+            fout << std::real(item) << " " << std::endl;
+        else
+            fout << std::abs(item) << " " << std::endl;
+    }
 }
